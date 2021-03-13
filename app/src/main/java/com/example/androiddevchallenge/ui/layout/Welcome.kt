@@ -68,8 +68,8 @@ fun Welcome() {
                 ),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(56.dp)
-                    .padding(bottom = 8.dp),
+                    .padding(bottom = 8.dp)
+                    .height(48.dp),
                 elevation = ButtonDefaults.elevation(defaultElevation = 0.dp)
             ) {
                 Text(text = "Create account")
@@ -81,7 +81,10 @@ fun Welcome() {
                     else white
                 ),
                 modifier = Modifier.fillMaxWidth(),
-                elevation = ButtonDefaults.elevation(defaultElevation = 0.dp, pressedElevation = 0.dp)
+                elevation = ButtonDefaults.elevation(
+                    defaultElevation = 0.dp,
+                    pressedElevation = 0.dp
+                )
             ) {
                 Text(
                     text = "Log in",
@@ -103,7 +106,7 @@ fun LightWelcomePreview() {
 
 @Preview("Dark Theme", widthDp = 360, heightDp = 640)
 @Composable
-fun DarkPreview() {
+fun DarkWelcomePreview() {
     MyTheme(darkTheme = true) {
         Welcome()
     }
