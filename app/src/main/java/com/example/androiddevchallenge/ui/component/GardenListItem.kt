@@ -22,11 +22,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Checkbox
+import androidx.compose.material.CheckboxDefaults
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
@@ -39,6 +41,8 @@ import dev.chrisbanes.accompanist.coil.CoilImage
 
 @Composable
 fun GardenListItem(garden: Garden) {
+    val state = mutableStateOf(false)
+
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier.fillMaxWidth()
@@ -86,8 +90,9 @@ fun GardenListItem(garden: Garden) {
             )
 
             Checkbox(
-                checked = false,
-                onCheckedChange = { },
+                checked = state.value,
+                onCheckedChange = { state.value = it },
+                colors = CheckboxDefaults.colors(checkmarkColor = MaterialTheme.colors.onSecondary),
                 modifier = Modifier.constrainAs(checkBox) {
                     top.linkTo(image.top)
                     bottom.linkTo(image.bottom)
