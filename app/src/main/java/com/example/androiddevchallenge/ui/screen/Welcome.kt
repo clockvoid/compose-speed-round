@@ -44,7 +44,7 @@ import com.example.androiddevchallenge.ui.theme.pink900
 import com.example.androiddevchallenge.ui.theme.white
 
 @Composable
-fun Welcome(navController: NavController, changeWindowBackground: () -> Unit) {
+fun Welcome(navController: NavController) {
     Surface(
         color = MaterialTheme.colors.primary,
         modifier = Modifier.fillMaxHeight()
@@ -103,10 +103,7 @@ fun Welcome(navController: NavController, changeWindowBackground: () -> Unit) {
             }
 
             Button(
-                onClick = {
-                    changeWindowBackground()
-                    navController.navigate("login")
-                },
+                onClick = { navController.navigate("login") },
                 colors = ButtonDefaults.textButtonColors(
                     contentColor = if (MaterialTheme.colors.isLight) pink900
                     else white
@@ -133,7 +130,7 @@ fun Welcome(navController: NavController, changeWindowBackground: () -> Unit) {
 @Composable
 fun LightWelcomePreview() {
     MyTheme {
-        Welcome(rememberNavController()) {}
+        Welcome(rememberNavController())
     }
 }
 
@@ -141,6 +138,6 @@ fun LightWelcomePreview() {
 @Composable
 fun DarkWelcomePreview() {
     MyTheme(darkTheme = true) {
-        Welcome(rememberNavController()) {}
+        Welcome(rememberNavController())
     }
 }

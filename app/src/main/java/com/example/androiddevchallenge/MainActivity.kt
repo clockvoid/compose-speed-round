@@ -46,14 +46,18 @@ class MainActivity : AppCompatActivity() {
 
                         window.decorView.setBackgroundColor(color)
 
-                        Welcome(navController) {
-                            theme.resolveAttribute(android.R.attr.colorBackground, typedValue, true)
-                            @ColorInt val newColor = typedValue.data
-
-                            window.decorView.setBackgroundColor(newColor)
-                        }
+                        Welcome(navController)
                     }
-                    composable("login") { Login(navController) }
+                    composable("login") {
+                        val typedValue = TypedValue()
+                        val theme: Theme = theme
+                        theme.resolveAttribute(android.R.attr.colorBackground, typedValue, true)
+                        @ColorInt val color = typedValue.data
+
+                        window.decorView.setBackgroundColor(color)
+
+                        Login(navController)
+                    }
                     composable("home") { Home() }
                 }
             }
