@@ -15,12 +15,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.navigate
+import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.ui.component.PrimaryButton
 import com.example.androiddevchallenge.ui.component.PrimaryTextField
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 @Composable
-fun Login() {
+fun Login(navController: NavController) {
     val state = remember { mutableStateOf("") }
 
     Surface(color = MaterialTheme.colors.background) {
@@ -56,7 +59,7 @@ fun Login() {
                 Text(text = "to our ", style = MaterialTheme.typography.body2)
                 Text(text = "Privacy Policy", style = MaterialTheme.typography.body2)
             }
-            PrimaryButton(text = "Log in", onClick = {})
+            PrimaryButton(text = "Log in", onClick = { navController.navigate("home") })
         }
     }
 }
@@ -65,7 +68,7 @@ fun Login() {
 @Composable
 fun LightLoginPreview() {
     MyTheme {
-        Login()
+        Login(rememberNavController())
     }
 }
 
@@ -73,6 +76,6 @@ fun LightLoginPreview() {
 @Composable
 fun DarkLoginPreview() {
     MyTheme(darkTheme = true) {
-        Login()
+        Login(rememberNavController())
     }
 }

@@ -1,4 +1,4 @@
-package com.example.androiddevchallenge.ui.layout
+package com.example.androiddevchallenge.ui.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -18,13 +18,16 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.navigate
+import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.ui.theme.MyTheme
 import com.example.androiddevchallenge.ui.theme.pink900
 import com.example.androiddevchallenge.ui.theme.white
 
 @Composable
-fun Welcome() {
+fun Welcome(navController: NavController) {
     Surface(color = MaterialTheme.colors.primary) {
         Image(
             imageVector = ImageVector.Companion.vectorResource(
@@ -75,7 +78,7 @@ fun Welcome() {
                 Text(text = "Create account")
             }
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { navController.navigate("login") },
                 colors = ButtonDefaults.textButtonColors(
                     contentColor = if (MaterialTheme.colors.isLight) pink900
                     else white
@@ -100,7 +103,7 @@ fun Welcome() {
 @Composable
 fun LightWelcomePreview() {
     MyTheme {
-        Welcome()
+        Welcome(rememberNavController())
     }
 }
 
@@ -108,6 +111,6 @@ fun LightWelcomePreview() {
 @Composable
 fun DarkWelcomePreview() {
     MyTheme(darkTheme = true) {
-        Welcome()
+        Welcome(rememberNavController())
     }
 }
