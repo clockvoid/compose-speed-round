@@ -17,8 +17,8 @@ package com.example.androiddevchallenge.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.*
-import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.toFontFamily
 import androidx.compose.ui.unit.sp
 import com.example.androiddevchallenge.R
 
