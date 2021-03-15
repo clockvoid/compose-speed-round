@@ -2,9 +2,11 @@ package com.example.androiddevchallenge.ui.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.ButtonDefaults.buttonColors
@@ -28,7 +30,10 @@ import com.example.androiddevchallenge.ui.theme.white
 
 @Composable
 fun Welcome(navController: NavController) {
-    Surface(color = MaterialTheme.colors.primary) {
+    Surface(
+        color = MaterialTheme.colors.primary,
+        modifier = Modifier.fillMaxHeight()
+    ) {
         Image(
             imageVector = ImageVector.Companion.vectorResource(
                 id = if (MaterialTheme.colors.isLight) R.drawable.ic_light_welcome_bg
@@ -37,7 +42,7 @@ fun Welcome(navController: NavController) {
             contentDescription = null
         )
 
-        Column(modifier = Modifier.padding(start = 16.dp, end = 16.dp)) {
+        Column() {
             Image(
                 imageVector = ImageVector.Companion.vectorResource(
                     id = if (MaterialTheme.colors.isLight) R.drawable.ic_light_welcome_illos
@@ -59,7 +64,8 @@ fun Welcome(navController: NavController) {
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 40.dp),
+                    .padding(start = 16.dp, end = 16.dp)
+                    .paddingFromBaseline(top = 32.dp, bottom = 40.dp),
                 style = MaterialTheme.typography.subtitle1.copy(color = MaterialTheme.colors.onBackground),
             )
             Button(
@@ -71,7 +77,7 @@ fun Welcome(navController: NavController) {
                 ),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 8.dp)
+                    .padding(bottom = 8.dp, start = 16.dp, end = 16.dp)
                     .height(48.dp),
                 elevation = ButtonDefaults.elevation(defaultElevation = 0.dp)
             ) {
@@ -83,7 +89,9 @@ fun Welcome(navController: NavController) {
                     contentColor = if (MaterialTheme.colors.isLight) pink900
                     else white
                 ),
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 16.dp, end = 16.dp),
                 elevation = ButtonDefaults.elevation(
                     defaultElevation = 0.dp,
                     pressedElevation = 0.dp
