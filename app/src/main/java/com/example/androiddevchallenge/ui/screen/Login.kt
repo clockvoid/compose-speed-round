@@ -58,13 +58,20 @@ fun Login(navController: NavController) {
                 style = MaterialTheme.typography.h1
             )
 
-            PrimaryTextField(state = state, label = {
-                Text(text = "Email address", style = MaterialTheme.typography.body2)
-            }, modifier = Modifier.padding(bottom = 8.dp))
+            PrimaryTextField(
+                state = state,
+                label = {
+                    Text(text = "Email address", style = MaterialTheme.typography.body2)
+                },
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
 
-            PrimaryTextField(state = state, label = {
-                Text(text = "Password (8+ characters)", style = MaterialTheme.typography.body2)
-            })
+            PrimaryTextField(
+                state = state,
+                label = {
+                    Text(text = "Password (8+ characters)", style = MaterialTheme.typography.body2)
+                }
+            )
 
             Row(modifier = Modifier.paddingFromBaseline(top = 24.dp)) {
                 Text(

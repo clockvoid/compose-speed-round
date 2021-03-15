@@ -43,9 +43,11 @@ fun GardenListItem(garden: Garden) {
         color = MaterialTheme.colors.background,
         modifier = Modifier.fillMaxWidth()
     ) {
-        ConstraintLayout(modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 16.dp, end = 16.dp)) {
+        ConstraintLayout(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, end = 16.dp)
+        ) {
             val (image, name, description, checkBox, line) = createRefs()
 
             CoilImage(
