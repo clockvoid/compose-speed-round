@@ -42,28 +42,30 @@ import com.example.androiddevchallenge.ui.theme.MyTheme
 @Composable
 fun Home() {
     Surface(color = MaterialTheme.colors.background) {
-        Scaffold(bottomBar = {
-            BottomNavigation(
-                backgroundColor = MaterialTheme.colors.primary,
-                contentColor = MaterialTheme.colors.onPrimary
-            ) {
-                NavItems.values().forEach { navItem ->
-                    BottomNavigationItem(
-                        selected = navItem == NavItems.HOME,
-                        onClick = {},
-                        icon = {
-                            Icon(
-                                imageVector = ImageVector.Companion.vectorResource(
-                                    id = navItem.iconRes
-                                ),
-                                contentDescription = null
-                            )
-                        },
-                        label = { Text(text = navItem.label) }
-                    )
+        Scaffold(
+            bottomBar = {
+                BottomNavigation(
+                    backgroundColor = MaterialTheme.colors.primary,
+                    contentColor = MaterialTheme.colors.onPrimary
+                ) {
+                    NavItems.values().forEach { navItem ->
+                        BottomNavigationItem(
+                            selected = navItem == NavItems.HOME,
+                            onClick = {},
+                            icon = {
+                                Icon(
+                                    imageVector = ImageVector.Companion.vectorResource(
+                                        id = navItem.iconRes
+                                    ),
+                                    contentDescription = null
+                                )
+                            },
+                            label = { Text(text = navItem.label) }
+                        )
+                    }
                 }
             }
-        }) {
+        ) {
             LazyColumn(
                 contentPadding = it
             ) {
