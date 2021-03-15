@@ -41,6 +41,8 @@ fun PrimaryTextField(
         onValueChange = { value -> state.value = value },
         label = label,
         textStyle = MaterialTheme.typography.body1,
+        maxLines = 1,
+        singleLine = true,
         modifier = modifier
             .fillMaxWidth()
             .height(56.dp)

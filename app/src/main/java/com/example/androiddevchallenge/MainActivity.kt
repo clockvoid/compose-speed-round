@@ -15,8 +15,11 @@
  */
 package com.example.androiddevchallenge
 
+import android.content.res.Resources.Theme
 import android.os.Bundle
+import android.util.TypedValue
 import androidx.activity.compose.setContent
+import androidx.annotation.ColorInt
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -29,12 +32,27 @@ import com.example.androiddevchallenge.ui.theme.MyTheme
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             MyTheme {
                 val navController = rememberNavController()
 
                 NavHost(navController = navController, startDestination = "welcome") {
-                    composable("welcome") { Welcome(navController) }
+                    composable("welcome") {
+                        val typedValue = TypedValue()
+                        val theme: Theme = theme
+                        theme.resolveAttribute(android.R.attr.windowBackground, typedValue, true)
+                        @ColorInt val color = typedValue.data
+
+                        window.decorView.setBackgroundColor(color)
+
+                        Welcome(navController) {
+                            theme.resolveAttribute(android.R.attr.colorBackground, typedValue, true)
+                            @ColorInt val newColor = typedValue.data
+
+                            window.decorView.setBackgroundColor(newColor)
+                        }
+                    }
                     composable("login") { Login(navController) }
                     composable("home") { Home() }
                 }

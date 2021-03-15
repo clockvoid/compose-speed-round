@@ -19,4 +19,6 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="gray">#FF232323</color>
+    <color name="pink_100">#FFFFF1F1</color>
+    <color name="green_900">#FF2D3B2D</color>
 </resources>
