@@ -1,3 +1,18 @@
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.example.androiddevchallenge.ui.screen
 
 import androidx.compose.foundation.Image
@@ -42,7 +57,7 @@ fun Welcome(navController: NavController) {
             contentDescription = null
         )
 
-        Column() {
+        Column {
             Image(
                 imageVector = ImageVector.Companion.vectorResource(
                     id = if (MaterialTheme.colors.isLight) R.drawable.ic_light_welcome_illos
@@ -51,6 +66,7 @@ fun Welcome(navController: NavController) {
                 contentDescription = null,
                 modifier = Modifier.padding(top = 72.dp, start = 88.dp, bottom = 48.dp)
             )
+
             Image(
                 imageVector = ImageVector.Companion.vectorResource(
                     id = if (MaterialTheme.colors.isLight) R.drawable.ic_light_logo
@@ -59,6 +75,7 @@ fun Welcome(navController: NavController) {
                 contentDescription = null,
                 modifier = Modifier.fillMaxWidth()
             )
+
             Text(
                 text = "Beautiful home garden solutions",
                 textAlign = TextAlign.Center,
@@ -68,6 +85,7 @@ fun Welcome(navController: NavController) {
                     .paddingFromBaseline(top = 32.dp, bottom = 40.dp),
                 style = MaterialTheme.typography.subtitle1.copy(color = MaterialTheme.colors.onBackground),
             )
+
             Button(
                 onClick = { /*TODO*/ },
                 shape = MaterialTheme.shapes.medium,
@@ -83,6 +101,7 @@ fun Welcome(navController: NavController) {
             ) {
                 Text(text = "Create account")
             }
+
             Button(
                 onClick = { navController.navigate("login") },
                 colors = ButtonDefaults.textButtonColors(
